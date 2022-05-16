@@ -26,7 +26,7 @@ def main(sc,sqlcontext):
         if s[:4] == '4451':
           yield x[0]
 
-    outputcoreplace = sc.textFile('/tmp/bdm/core-places-nyc') \
+    outputcoreplace = sc.textFile('/tmp/bdm/core-places-nyc.csv') \
                   .mapPartitionsWithIndex(read_place_key).collect()
 
     def readPatterns(partId, part):
